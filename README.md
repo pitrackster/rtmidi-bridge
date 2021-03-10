@@ -2,7 +2,7 @@
 
 > Allow my iDevice to send midi messages to bitwig using rtpmidi, avahi and ALSA virtual midi (snd-virmidi module)
 
-For now I use Windows / iPad for all my music hobby. I discovered the fabulous tool [rtpMIDI](http://www.tobias-erichsen.de/software/rtpmidi.html) from Tobias Erichsen... But I am really fed up with Windows... So I try to make something similar in open source and for Linux...
+For now I use Windows / iPad for all my music hobby. I discovered the fabulous tool [rtpMIDI](http://www.tobias-erichsen.de/software/rtpmidi.html) from Tobias Erichsen... But I am really fed up with Windows and want to switch for Linux... So I try to make something similar in open source and for Linux...
 
 ## THINGS TO KNOW
 
@@ -16,7 +16,7 @@ For now I use Windows / iPad for all my music hobby. I discovered the fabulous t
 
 - install avahi `sudo apt install avahi-daemon avahi-discover`
 - install rtpmidi daemon
-  - download last release of rtpmidid [here](https://github.com/davidmoreno/rtpmidid/releases)
+  - download last rtpmidid release from [here](https://github.com/davidmoreno/rtpmidid/releases)
   - run `sudo dpkg -i rtpmidid_xxxx_amd64.deb`
 
 ### PYTHON
@@ -70,6 +70,7 @@ Select MIDI output port (Control-C to exit): 1
 
 ## KNOWN ISSUES
 
+- it takes a little time for midi input to be effective 
 - the iDevice disconnect after a little moment
 - should be packaged with all python dependencies or at least use a package dependencies manager file...
 - relies on "WIP" projects (RTP MIDI is Alpha software)
