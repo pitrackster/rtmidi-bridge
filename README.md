@@ -2,13 +2,16 @@
 
 > Allow my iDevice to send midi messages to bitwig using rtpmidi, avahi and ALSA virtual midi (snd-virmidi module)
 
-For now I use Windows / iPad for all my music hobby. I discovered the fabulous tool [rtpMIDI](http://www.tobias-erichsen.de/software/rtpmidi.html) from Tobias Erichsen... But I am really fed up with Windows and want to switch for Linux... So I try to make something similar in open source and for Linux...
+For now I use Windows / iPad for all my music hobby. I discovered the fabulous tool [rtpMIDI](http://www.tobias-erichsen.de/software/rtpmidi.html) from Tobias Erichsen 
+and use it to control bitwig from my iPad... But I am really fed up with Windows and want to make the switch to Linux... 
+So I try to make something similar to Tobias Erichsen rtpMIDI in open source and for Linux...
 
 ## THINGS TO KNOW
 
 - Bitwig uses ALSA MIDI, so it wont allow to select other MIDI ports than ALSA MIDI ports hence the use of snd-virmidi
-- this is a WIP, I don't speak python and I am also kind of - total noob in network / midi
+- this is a WIP, I don't speak python and I am also a total noob in network / midi
 - this developpement is for my personal use and is intended to work with bitwig and Ubuntu (20.04 LTS)
+- the python code used is taken from various examples and I do not fully understand what is done ;-)
 
 ## DEPENDENCIES
 
@@ -75,9 +78,12 @@ Select MIDI output port (Control-C to exit): 1
 - relies on "WIP" projects (RTP MIDI is an Alpha software)
 - after a deconnection the iDevice wont appear if I try to reconnect...
 - uses two separate scripts...
+- iDevice and comptuer need to be on the same network.
+- if there is to much latency you can use wifi hotspot on the computer and connect the iDevice to this wifi hotspot...
 
 ## TODO
 
 - enable snd-virmidi with a persistent conf file in modules ?
 - use a UI ?
-- one script rules them all (ie add iDevice with zeroconf AND choose midi midi in / out)
+- one script to rule them all (ie add iDevice with zeroconf AND choose midi midi in / out)
+- should be able to mesure latency
