@@ -8,7 +8,7 @@ For now I use Windows / iPad for all my music hobby. I discovered the fabulous t
 
 - Bitwig uses ALSA MIDI, so it wont allow to select other MIDI ports than ALSA MIDI ports hence the use of snd-virmidi
 - this is a WIP, I don't speak python and I am also kind of - total noob in network / midi
-- this developpement is for my personal use and is intended to work with bitwig and ubuntu (20.04 LTS) so there wont be any support... but feel free to suggest improvments
+- this developpement is for my personal use and is intended to work with bitwig and Ubuntu (20.04 LTS)
 
 ## DEPENDENCIES
 
@@ -78,6 +78,6 @@ Select MIDI output port (Control-C to exit): 1
 
 ## TODO
 
-- enable snd-virmidi with a persistent conf file in modules
+- enable snd-virmidi with a persistent conf file in modules ?
 - use a UI ?
 - one shot script (ie add iDevice AND enable midi dialog)
