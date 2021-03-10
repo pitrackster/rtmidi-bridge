@@ -1,15 +1,14 @@
 # RTMIDI BRIDGE
 
-> Allow my idevice to send midi messages to bitwig using rtpmidi, avahi and ALSA virtual midi (snd-virmidi module)
+> Allow my iDevice to send midi messages to bitwig using rtpmidi, avahi and ALSA virtual midi (snd-virmidi module)
 
-For now I use Windows / iPad for all my music Hobby. I discovered the fabulous tool from Tobias Erichsen But I am really fed up with Windows.
-So I try to make something similar in open source and for Linux...
+For now I use Windows / iPad for all my music hobby. I discovered the fabulous tool [rtpMIDI](http://www.tobias-erichsen.de/software/rtpmidi.html) from Tobias Erichsen... But I am really fed up with Windows... So I try to make something similar in open source and for Linux...
 
-## Important things to now
+## THINGS TO KNOW
 
 - Bitwig uses ALSA MIDI, so it wont allow to select other MIDI ports than ALSA MIDI ports hence the use of snd-virmidi
-- this is a WIP, I don't speak python and I am also kind of noob in network / midi
-- this is for my personal use and is intended to work with bitwig and ubuntu (20.04 LTS)
+- this is a WIP, I don't speak python and I am also kind of - total noob in network / midi
+- this developpement is for my personal use and is intended to work with bitwig and ubuntu (20.04 LTS) so there wont be any support... but feel free to suggest improvments
 
 ## DEPENDENCIES
 
@@ -22,17 +21,17 @@ So I try to make something similar in open source and for Linux...
 
 ### PYTHON
 
-- [Zeroconf](https://pypi.org/project/zeroconf/) `pip3 install zeroconf`
-- [rtmidi] `pip3 install python-rtmidi`
+- install [Zeroconf](https://pypi.org/project/zeroconf/) with `pip3 install zeroconf`
+- install [rtmidi](https://github.com/SpotlightKid/python-rtmidi) with `pip3 install python-rtmidi`
 
 ## USE IT
 
 - enable ALSA virtual midi module `sudo modprobe snd-virmidi`
 - be sure to have an iDevice connected on the same network as your computer
-- launch `python3 utils/bonjour.py`
+- launch `utils/bonjour.py` (with my python install it is `python3 utils/bonjour.py`)
 - personaly I uses [KB-1](https://apps.apple.com/us/app/kb-1-keyboard-suite/id1437919435) to send midi data to the computer but you can use [MIDI Wrench](https://apps.apple.com/us/app/midi-wrench/id589243566) by Christian Schoenebeck
-- execute the script `python3 rtmidi-bridge.py`
-- choose the appropriate midi input / output (you should see you iDevice)
+- execute the script `rtmidi-bridge.py` (with my python install it is `python3 rtmidi-bridge.py`)
+- choose the appropriate midi input / output (you should see your iDevice)
 
 ```bash
 DEBUG:rtmidi.midiutil:Creating MidiIn object.
@@ -59,8 +58,8 @@ Available MIDI ports:
 [2] Virtual Raw MIDI 1-1:VirMIDI 1-1 21:0
 [3] Virtual Raw MIDI 1-2:VirMIDI 1-2 22:0
 [4] Virtual Raw MIDI 1-3:VirMIDI 1-3 23:0
-[5] rtpmidi guillpat-Latitude-5490:Network 128:0
-[6] RtMidiIn Client:rtpmidi guillpat-Latitude-5490:Network 128:0 129:0
+[5] rtpmidi pitrack-computer:Network 128:0
+[6] RtMidiIn Client:rtpmidi pitrack-computer:Network 128:0 129:0
 
 Select MIDI output port (Control-C to exit): 1
 
@@ -69,7 +68,7 @@ Select MIDI output port (Control-C to exit): 1
 - you should be able to send midi data from your iDevice to bitwig
 
 
-## known issues
+## KNOWN ISSUES
 
 - the iDevice disconnect after a little moment
 - should be packaged with all python dependencies or at least use a package dependencies manager file...
