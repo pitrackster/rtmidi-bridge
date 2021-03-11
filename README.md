@@ -5,16 +5,15 @@
 Recently I discovered [rtpMIDI](http://www.tobias-erichsen.de/software/rtpmidi.html) from Tobias Erichsen and used it to control bitwig from my iPad... But:
 
 - it only works on windows
-- I am really fed up with Windows and want to make the switch to Linux
+- I am really fed up with Windows and want to make the switch to Linux... at least I want to try ;-)
 
-So I want to make something similar to Tobias Erichsen rtpMIDI ... for Linux !
+So I made something similar (same purpose but way more simple) to Tobias Erichsen rtpMIDI but for Linux !
 
 ## THINGS TO KNOW
 
-- as far as I know, Bitwig uses ALSA MIDI, so it wont allow you to select other MIDI ports than ALSA MIDI ports... hence the use of snd-virmidi
-- **this is a WIP**, I don't speak python and I am also a total noob in network / midi
-- this developpement is for my personal use and is intended to work with bitwig and Ubuntu (20.10)
-- the python code used is taken from various examples and I do not fully understand what is done ;-)
+- I don't speak python and I am also a total noob in network / midi
+- this developpement is for my personal use and is intended to work with an iDevice, bitwig and Ubuntu (20.10)
+- in the current state it works and it fulfill my needs...
 
 ## DEPENDENCIES
 
@@ -35,7 +34,7 @@ So I want to make something similar to Tobias Erichsen rtpMIDI ... for Linux !
 
 > on iOS you can use the free [MIDI Wrench](https://apps.apple.com/us/app/midi-wrench/id589243566) tool to test midi messages
 
-- enable ALSA virtual midi module `sudo modprobe snd-virmidi`
+- enable ALSA virtual midi module `sudo modprobe snd-virmidi` (Bitwig is ALSA MIDI only)
 - be sure to have an iDevice connected on the same network as your computer
 - launch `rtmidi-bridge.py` (with my python install it is `python3 rtmidi-bridge.py`)
   - you can also do `chmod +x rtmidi-bridge.py` and then launch with `./rtmidi-bridge.py`
@@ -81,9 +80,8 @@ Select MIDI output port (Control-C to exit): 1
 - iDevice and comptuer need to be on the same network
 - if there is to much latency you can create a wifi hotspot on the computer and connect the iDevice to this wifi hotspot
 
-## TODO
+## POSSIBLE IMPROVMENTS
 
-- enable snd-virmidi with a persistent conf file in modules ?
-- use a UI ?
 - should be able to mesure latency
 - should be able to send midi data from computer to iDevice
+- use a UI
