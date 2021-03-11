@@ -38,6 +38,7 @@ So I want to make something similar to Tobias Erichsen rtpMIDI ... for Linux !
 - enable ALSA virtual midi module `sudo modprobe snd-virmidi`
 - be sure to have an iDevice connected on the same network as your computer
 - launch `rtmidi-bridge.py` (with my python install it is `python3 rtmidi-bridge.py`)
+  - you can also do `chmod +x rtmidi-bridge.py` and then launch with `./rtmidi-bridge.py`
 - you'll be asked for several questions... among them you'll have to choose the appropriate midi input / output (you should see your iDevice)
 
 ```bash
