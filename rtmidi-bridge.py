@@ -23,10 +23,10 @@ class MidiInputHandler(object):
     def __call__(self, event, data=None):
         message, deltatime = event
         self._wallclock += deltatime
+        # forward midi message to the selected output
         midiout.send_message(message)
-        if debug == 'y':
-            logging.debug("[%s] @%0.6f %r" %
-                          (self.port, self._wallclock, message))
+        logging.debug("[%s] @%0.6f %r" %
+                      (self.port, self._wallclock, message))
 
 
 class ZeroConfListener:

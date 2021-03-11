@@ -2,15 +2,18 @@
 
 > Allow my iDevice to send midi messages to bitwig using rtpmidi, avahi and ALSA virtual midi (snd-virmidi module)
 
-For now I use Windows / iPad for all my music hobby. I discovered the fabulous tool [rtpMIDI](http://www.tobias-erichsen.de/software/rtpmidi.html) from Tobias Erichsen 
-and use it to control bitwig from my iPad... But I am really fed up with Windows and want to make the switch to Linux... 
-So I try to make something similar to Tobias Erichsen rtpMIDI in open source and for Linux...
+Recently I discovered [rtpMIDI](http://www.tobias-erichsen.de/software/rtpmidi.html) from Tobias Erichsen and used it to control bitwig from my iPad... But:
+
+- it only works on windows
+- I am really fed up with Windows and want to make the switch to Linux
+
+So I want to make something similar to Tobias Erichsen rtpMIDI ... for Linux !
 
 ## THINGS TO KNOW
 
-- Bitwig uses ALSA MIDI, so it wont allow to select other MIDI ports than ALSA MIDI ports hence the use of snd-virmidi
-- this is a WIP, I don't speak python and I am also a total noob in network / midi
-- this developpement is for my personal use and is intended to work with bitwig and Ubuntu (20.04 LTS)
+- as far as I know, Bitwig uses ALSA MIDI, so it wont allow you to select other MIDI ports than ALSA MIDI ports... hence the use of snd-virmidi
+- **this is a WIP**, I don't speak python and I am also a total noob in network / midi
+- this developpement is for my personal use and is intended to work with bitwig and Ubuntu (20.10)
 - the python code used is taken from various examples and I do not fully understand what is done ;-)
 
 ## DEPENDENCIES
@@ -30,7 +33,7 @@ So I try to make something similar to Tobias Erichsen rtpMIDI in open source and
 
 ## USE IT
 
-> personaly I uses [KB-1](https://apps.apple.com/us/app/kb-1-keyboard-suite/id1437919435) to send midi data to the computer but you can use [MIDI Wrench](https://apps.apple.com/us/app/midi-wrench/id589243566) which is free
+> on iOS you can use the free [MIDI Wrench](https://apps.apple.com/us/app/midi-wrench/id589243566) tool to test midi messages
 
 - enable ALSA virtual midi module `sudo modprobe snd-virmidi`
 - be sure to have an iDevice connected on the same network as your computer
@@ -72,14 +75,14 @@ Select MIDI output port (Control-C to exit): 1
 
 ## KNOWN ISSUES / LIMITATIONS
 
-- it takes a little time for midi input to be effective i.e. receive midi messages from iDevice
+- it takes a little time for midi input to be effective i.e. receive midi messages from the iDevice
 - relies on "WIP" projects (RTP MIDI is an Alpha software)
-- uses two separate scripts...
 - iDevice and comptuer need to be on the same network
-- if there is to much latency you can use wifi hotspot on the computer and connect the iDevice to this wifi hotspot...
+- if there is to much latency you can create a wifi hotspot on the computer and connect the iDevice to this wifi hotspot
 
 ## TODO
 
 - enable snd-virmidi with a persistent conf file in modules ?
 - use a UI ?
 - should be able to mesure latency
+- should be able to send midi data from computer to iDevice
