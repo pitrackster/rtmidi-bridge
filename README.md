@@ -17,7 +17,7 @@ So I try to make something similar to Tobias Erichsen rtpMIDI in open source and
 
 ###  UBUNTU
 
-- install avahi `sudo apt install avahi-daemon avahi-discover`
+- if not provided by your distribution install avahi `sudo apt install avahi-daemon avahi-discover`
 - install rtpmidi daemon
   - download last rtpmidid release from [here](https://github.com/davidmoreno/rtpmidid/releases)
   - run `sudo dpkg -i rtpmidid_xxxx_amd64.deb`
@@ -26,18 +26,21 @@ So I try to make something similar to Tobias Erichsen rtpMIDI in open source and
 
 - install [Zeroconf](https://pypi.org/project/zeroconf/) with `pip3 install zeroconf`
 - install [rtmidi](https://github.com/SpotlightKid/python-rtmidi) with `pip3 install python-rtmidi`
+  - python-rtmidi relies on libasound2-dev so pip3 will fail if this package is not installed
 
 ## USE IT
 
+> personaly I uses [KB-1](https://apps.apple.com/us/app/kb-1-keyboard-suite/id1437919435) to send midi data to the computer but you can use [MIDI Wrench](https://apps.apple.com/us/app/midi-wrench/id589243566) which is free
+
 - enable ALSA virtual midi module `sudo modprobe snd-virmidi`
 - be sure to have an iDevice connected on the same network as your computer
-- launch `utils/bonjour.py` (with my python install it is `python3 utils/bonjour.py`)
-- personaly I uses [KB-1](https://apps.apple.com/us/app/kb-1-keyboard-suite/id1437919435) to send midi data to the computer but you can use [MIDI Wrench](https://apps.apple.com/us/app/midi-wrench/id589243566) by Christian Schoenebeck
-- execute the script `rtmidi-bridge.py` (with my python install it is `python3 rtmidi-bridge.py`)
-- choose the appropriate midi input / output (you should see your iDevice)
+- launch `rtmidi-bridge.py` (with my python install it is `python3 rtmidi-bridge.py`)
+- you'll be asked for several questions... among them you'll have to choose the appropriate midi input / output (you should see your iDevice)
 
 ```bash
-DEBUG:rtmidi.midiutil:Creating MidiIn object.
+# answer yes if you want to log informations
+Enable debug file? (y/N) y
+
 Do you want to create a virtual MIDI input port? (y/N) N
 Available MIDI ports:
 
@@ -50,9 +53,6 @@ Available MIDI ports:
 [6] rtpmidi pitrack-computer:iBidule 128:1 # this is the one for me
 
 Select MIDI input port (Control-C to exit): 6
-
-INFO:rtmidi.midiutil:Opening MIDI input port
-DEBUG:rtmidi.midiutil:Creating MidiOut object.
 Do you want to create a virtual MIDI output port? (y/N) N
 Available MIDI ports:
 
