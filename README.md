@@ -70,20 +70,16 @@ Select MIDI output port (Control-C to exit): 1
 
 - you should be able to send midi data from your iDevice to bitwig
 
-## KNOWN ISSUES
+## KNOWN ISSUES / LIMITATIONS
 
-- it takes a little time for midi input to be effective ie receive midi inputs from iDevice... but once it's ok there is quite no latency 
-- the iDevice disconnect after a little moment... Seems resolved by adding an empty `update_service` method to zeroconf ServiceBrowser listener
-- should be packaged with all python dependencies or at least use a package dependencies manager file...
+- it takes a little time for midi input to be effective i.e. receive midi messages from iDevice
 - relies on "WIP" projects (RTP MIDI is an Alpha software)
-- after a deconnection the iDevice wont appear if I try to reconnect...
 - uses two separate scripts...
-- iDevice and comptuer need to be on the same network.
+- iDevice and comptuer need to be on the same network
 - if there is to much latency you can use wifi hotspot on the computer and connect the iDevice to this wifi hotspot...
 
 ## TODO
 
 - enable snd-virmidi with a persistent conf file in modules ?
 - use a UI ?
-- one script to rule them all (ie add iDevice with zeroconf AND choose midi midi in / out)
 - should be able to mesure latency
