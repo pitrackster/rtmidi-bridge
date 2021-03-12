@@ -27,8 +27,7 @@ class MidiInputHandler(object):
         self._wallclock += deltatime
         # forward midi message to the selected output
         midiout.send_message(message)
-        logging.debug("[%s] @%0.6f %r" %
-                      (self.port, self._wallclock, message))
+        print("[%s] @%0.6f %r" % (self.port, self._wallclock, message))
 
 
 class ZeroConfListener:

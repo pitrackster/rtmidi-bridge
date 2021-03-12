@@ -12,8 +12,9 @@ So I made something similar (same purpose but way more simple) to Tobias Erichse
 ## THINGS TO KNOW
 
 - I don't speak python and I am also a total noob in network / midi
-- this developpement is for my personal use and is intended to work with an iDevice, bitwig and Ubuntu (20.10)
+- this developpement is for my personal use and is intended to work with an iDevice, bitwig and Ubuntu Studio (20.04)
 - in the current state it works and it fulfill my needs...
+- on iOS you can use the free [MIDI Wrench](https://apps.apple.com/us/app/midi-wrench/id589243566) tool to test midi messages
 
 ## DEPENDENCIES
 
@@ -28,17 +29,16 @@ So I made something similar (same purpose but way more simple) to Tobias Erichse
 
 - install [Zeroconf](https://pypi.org/project/zeroconf/) with `pip3 install zeroconf`
 - install [rtmidi](https://github.com/SpotlightKid/python-rtmidi) with `pip3 install python-rtmidi`
-  - python-rtmidi relies on libasound2-dev so pip3 will fail if this package is not installed
+  - pip3 install will enventually fail beacause of unmet dependencies... on my ditro (Ubuntu Studio 20.04) it was libasound2-dev && libjack-jackd2-dev
 
 ## USE IT
 
-> on iOS you can use the free [MIDI Wrench](https://apps.apple.com/us/app/midi-wrench/id589243566) tool to test midi messages
-
 - enable ALSA virtual midi module `sudo modprobe snd-virmidi` (Bitwig is ALSA MIDI only)
+  - you can also add this module permanently by editing the modules.conf file (on Ubuntu Studio `/etc/modules-load.d/modules.conf`)
 - be sure to have an iDevice connected on the same network as your computer
 - launch `rtmidi-bridge.py` (with my python install it is `python3 rtmidi-bridge.py`)
   - you can also do `chmod +x rtmidi-bridge.py` and then launch with `./rtmidi-bridge.py`
-- you'll be asked for several questions... among them you'll have to choose the appropriate midi input / output (you should see your iDevice)
+- answer the questions (below is a full example on my computer)
 
 ```bash
 # answer yes if you want to log informations
@@ -71,13 +71,13 @@ Select MIDI output port (Control-C to exit): 1
 
 ```
 
-- you should be able to send midi data from your iDevice to bitwig
+- you should be able to send midi data from your iDevice to Bitwig
 
 ## KNOWN ISSUES / LIMITATIONS
 
 - it takes a little time for midi input to be effective i.e. receive midi messages from the iDevice
 - relies on "WIP" projects (RTP MIDI is an Alpha software)
-- iDevice and comptuer need to be on the same network
+- iDevice and computer need to be on the same network
 - if there is to much latency you can create a wifi hotspot on the computer and connect the iDevice to this wifi hotspot
 
 ## POSSIBLE IMPROVMENTS
