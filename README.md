@@ -76,8 +76,9 @@ Select MIDI output port (Control-C to exit): 1
 ## KNOWN ISSUES / LIMITATIONS
 
 - it takes a little time for midi input to be effective i.e. receive midi messages from the iDevice
+- quickly reapeating notes will result in timing issues (this issue also exist with rtpMIDI)
 - relies on "WIP" projects (RTP MIDI is an Alpha software)
-- iDevice and computer need to be on the same network
+- iDevice and computer need to be on the same network and can not be connetcted via USB
 - if there is to much latency you can create a wifi hotspot on the computer and connect the iDevice to this wifi hotspot
 
 ## POSSIBLE IMPROVMENTS
