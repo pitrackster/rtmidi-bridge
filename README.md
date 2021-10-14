@@ -85,4 +85,10 @@ Select MIDI output port (Control-C to exit): 1
 
 - should be able to mesure latency
 - should be able to send midi data from computer to iDevice
-- use a UI
+- ~~use a UI~~
+
+## usefull things
+
+- PyQT tutorials https://pythonbasics.org/pyqt-input-dialog/
+- update a dependecy `pip3 install python-rtmidi --upgrade`
+- packaging application https://packaging.python.org/
