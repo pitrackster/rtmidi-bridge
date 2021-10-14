@@ -42,11 +42,19 @@ So I made something similar (same purpose but way more simple) to Tobias Erichse
 
 ## USE IT
 
+### GUI
+
+- `python3 rt-midi-ui.py`
+
+### CLI
+
+- `python3 rt-midi-cli.py`
+
 - enable ALSA virtual midi module `sudo modprobe snd-virmidi` (Bitwig is ALSA MIDI only)
   - you can also add this module permanently by editing the modules.conf file (on Ubuntu Studio `/etc/modules-load.d/modules.conf`)
 - be sure to have an iDevice connected on the same network as your computer
-- launch `rtmidi-bridge.py` (with my python install it is `python3 rtmidi-bridge.py`)
-  - you can also do `chmod +x rtmidi-bridge.py` and then launch with `./rtmidi-bridge.py`
+- launch `python3 rt-midi-cli.py` (with my python install it is `python3 python3 rt-midi-cli.py`)
+  - you can also do `chmod +x rt-midi-cli.py` and then launch with `./rt-midi-cli.py`
 - answer the questions (below is a full example on my computer)
 
 ```bash
