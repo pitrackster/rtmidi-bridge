@@ -18,6 +18,9 @@ So I made something similar (same purpose but way more simple) to Tobias Erichse
 
 ## DEPENDENCIES
 
+- python 3.8 & pip3
+- [pipenv](https://packaging.python.org/tutorials/managing-dependencies/#installing-pipenv)
+
 ###  UBUNTU
 
 - if not provided by your distribution install avahi `sudo apt install avahi-daemon avahi-discover`
@@ -25,7 +28,13 @@ So I made something similar (same purpose but way more simple) to Tobias Erichse
   - download last rtpmidid release from [here](https://github.com/davidmoreno/rtpmidid/releases)
   - run `sudo dpkg -i rtpmidid_xxxx_amd64.deb`
 
-### PYTHON
+## INSTALL
+
+### using requirements
+
+- `python3 -m pip install -r requirements.txt`
+
+## using pure python
 
 - install [Zeroconf](https://pypi.org/project/zeroconf/) with `pip3 install zeroconf`
 - install [rtmidi](https://github.com/SpotlightKid/python-rtmidi) with `pip3 install python-rtmidi`
@@ -92,3 +101,5 @@ Select MIDI output port (Control-C to exit): 1
 - PyQT tutorials https://pythonbasics.org/pyqt-input-dialog/
 - update a dependecy `pip3 install python-rtmidi --upgrade`
 - packaging application https://packaging.python.org/
+- pipenv install libs here `~/.local/lib/pythonX.Y`
+- `pipenv lock -r > requirements.txt`

@@ -18,7 +18,7 @@ class ZeroConfListener:
 
     def add_service(self, zeroconf, type, name):
         info = zeroconf.get_service_info(type, name)
-        MainWindow.addLo("Service %s added, service info: %s" % (name, info))
+        MainWindow.addLog("Service %s added, service info: %s" % (name, info))
 
     def update_service(self, zeroconf, type, name):
         info = zeroconf.get_service_info(type, name)
