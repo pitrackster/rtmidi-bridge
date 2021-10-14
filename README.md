@@ -111,3 +111,7 @@ Select MIDI output port (Control-C to exit): 1
 - packaging application https://packaging.python.org/
 - pipenv install libs here `~/.local/lib/pythonX.Y`
 - `pipenv lock -r > requirements.txt`
+
+## distribute
+
+- http://www.pyinstaller.org/
