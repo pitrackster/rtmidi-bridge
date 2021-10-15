@@ -5,7 +5,7 @@ from __future__ import print_function
 import logging
 import sys
 import time
-
+import os
 
 from zeroconf import ServiceBrowser, Zeroconf
 
@@ -15,6 +15,7 @@ from rtmidi.midiutil import open_midioutput
 logging.basicConfig(filename="debug.log", level=logging.DEBUG)
 
 debug = input("Enable debug file? (y/N) ")
+createVirtualMidiPorts = input("Create Virtual MIDI ports (ALSA)? (y/N) ")
 
 
 class MidiInputHandler(object):
@@ -52,6 +53,9 @@ zero_listener = ZeroConfListener()
 
 # browse for _apple-midi._udp service
 browser = ServiceBrowser(zeroconf, "_apple-midi._udp.local.", zero_listener)
+
+if(createVirtualMidiPorts == 'y'):
+    os.system('sudo modprobe snd-virmidi')
 
 # Prompts user for MIDI input port, unless a valid port number or name
 # is given as the first argument on the command line.
