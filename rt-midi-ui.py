@@ -126,14 +126,15 @@ class MainWindow(QMainWindow):
 
     def selectMidiOut(self, index):
         self.midiout, port_name = open_midioutput(index)
-        msg = "Selected MIDI source %s" % (port_name)
+        msg = "Selected MIDI destination %s" % (port_name)
         print(msg)
+        self.midiin.set_callback(MidiInputHandler(port_name, self.midiout))
 
     def selectMidiIn(self, index):
         self.midiin, port_name = open_midiinput(index)       
-        msg = "Selected MIDI destination %s" % (port_name)
+        msg = "Selected MIDI source %s" % (port_name)
         print(msg)
-        self.midiin.set_callback(MidiInputHandler(port_name, self.midiout))   
+        
 
 
     def refreshMidiDevices(self):
