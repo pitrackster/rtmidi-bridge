@@ -7,8 +7,5 @@
 
 -i https://pypi.org/simple
 ifaddr==0.1.7
-pyqt5-qt5==5.15.2
-pyqt5-sip==12.9.0; python_version >= '3.5'
-pyqt5==5.15.4
 python-rtmidi==1.4.9
 zeroconf==0.36.8
