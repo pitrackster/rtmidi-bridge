@@ -87,12 +87,17 @@ try:
     while True:
         time.sleep(1)
 except KeyboardInterrupt:
-    print('')
+    print('')    
 finally:
     print("Exit.")
+
     midiin.close_port()
     midiout.close_port()
     zeroconf.close()
+
+    if(createVirtualMidiPorts == 'y'):
+        os.system('sudo modprobe -r snd-virmidi')    
+
     del midiin
     del midiout
     del zeroconf
