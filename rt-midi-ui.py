@@ -141,7 +141,7 @@ class MainWindow(QMainWindow):
         available_out_ports = self.midiout.get_ports()
         self.comboIn.clear()
         self.comboOut.clear()
-        self.emitter.emit('log-event', "Refreshing midi devices")
+        print("Refreshing midi devices")
         for midiIn in available_in_ports:            
             self.comboIn.addItem(midiIn)
         for out in available_out_ports:
