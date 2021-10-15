@@ -30,25 +30,10 @@ So I made something similar (same purpose but way more simple) to Tobias Erichse
 
 ## INSTALL
 
-### using requirements
-
 - `python3 -m pip install -r requirements.txt`
-
-## using pure python
-
-- install [Zeroconf](https://pypi.org/project/zeroconf/) with `pip3 install zeroconf`
-- install [rtmidi](https://github.com/SpotlightKid/python-rtmidi) with `pip3 install python-rtmidi`
-  - pip3 install will enventually fail beacause of unmet dependencies... on my ditro (Ubuntu Studio 20.04) it was libasound2-dev && libjack-jackd2-dev
+- or use the release
 
 ## USE IT
-
-### GUI
-
-- `python3 rt-midi-ui.py`
-
-### CLI
-
-- `python3 rt-midi-cli.py`
 
 - enable ALSA virtual midi module `sudo modprobe snd-virmidi` (Bitwig is ALSA MIDI only)
   - you can also add this module permanently by editing the modules.conf file (on Ubuntu Studio `/etc/modules-load.d/modules.conf`)
@@ -70,7 +55,7 @@ Available MIDI ports:
 [3] Virtual Raw MIDI 1-2:VirMIDI 1-2 22:0
 [4] Virtual Raw MIDI 1-3:VirMIDI 1-3 23:0
 [5] rtpmidi pitrack-computer:Network 128:0
-[6] rtpmidi pitrack-computer:iBidule 128:1 # this is the one for me
+[6] rtpmidi pitrack-computer:iPad 128:1 # this is the one for me
 
 Select MIDI input port (Control-C to exit): 6
 Do you want to create a virtual MIDI output port? (y/N) N
@@ -102,16 +87,13 @@ Select MIDI output port (Control-C to exit): 1
 
 - should be able to mesure latency
 - should be able to send midi data from computer to iDevice
-- ~~use a UI~~
+- use a UI
+- make a standalone [release](http://www.pyinstaller.org/)
 
-## usefull things
+## RESOURCES
 
 - PyQT tutorials https://pythonbasics.org/pyqt-input-dialog/
 - update a dependecy `pip3 install python-rtmidi --upgrade`
 - packaging application https://packaging.python.org/
 - pipenv install libs here `~/.local/lib/pythonX.Y`
 - `pipenv lock -r > requirements.txt`
-
-## distribute
-
-- http://www.pyinstaller.org/
