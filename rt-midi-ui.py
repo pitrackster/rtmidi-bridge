@@ -14,6 +14,8 @@ from subprocess import Popen, PIPE
 from eventemitter import EventEmitter
 
 
+midiout = rtmidi.MidiOut()
+
 class ZeroConfListener:
 
     def remove_service(self, zeroconf, type, name):
@@ -34,16 +36,15 @@ class ZeroConfListener:
 
 
 class MidiInputHandler(object):
-    def __init__(self, port, midiout):
+    def __init__(self, port):
         self.port = port
         self._wallclock = time.time()
-        self.midiout = midiout
 
     def __call__(self, event, data=None):
         message, deltatime = event
         self._wallclock += deltatime
         # forward midi message to the selected output
-        self.midiout.send_message(message)
+        midiout.send_message(message)
         msg = "[%s] @%0.6f %r" % (self.port, self._wallclock, message)
         print(msg)
 
@@ -52,8 +53,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.showLogs = True
-        self.midiout = rtmidi.MidiOut()
-        available_out_ports = self.midiout.get_ports()
+        available_out_ports = midiout.get_ports()
         self.midiin = rtmidi.MidiIn()
         available_in_ports = self.midiin.get_ports()      
 
@@ -125,10 +125,10 @@ class MainWindow(QMainWindow):
         self.show()   
 
     def selectMidiOut(self, index):
-        self.midiout, port_name = open_midioutput(index)
+        midiout, port_name = open_midioutput(index)
         msg = "Selected MIDI destination %s" % (port_name)
         print(msg)
-        self.midiin.set_callback(MidiInputHandler(port_name, self.midiout))
+        self.midiin.set_callback(MidiInputHandler(port_name))
 
     def selectMidiIn(self, index):
         self.midiin, port_name = open_midiinput(index)       
@@ -139,7 +139,7 @@ class MainWindow(QMainWindow):
 
     def refreshMidiDevices(self):
         available_in_ports = self.midiin.get_ports()
-        available_out_ports = self.midiout.get_ports()
+        available_out_ports = midiout.get_ports()
         self.comboIn.clear()
         self.comboOut.clear()
         print("Refreshing midi devices")
