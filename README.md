@@ -88,7 +88,7 @@ Select MIDI output port (Control-C to exit): 1
 - should be able to mesure latency
 - should be able to send midi data from computer to iDevice
 - use a UI
-- make a standalone [release](http://www.pyinstaller.org/)
+- make a standalone [release](http://www.pyinstaller.org/) basicaly `pyinstaller rt-midi-cli.py`
 
 ## RESOURCES
 
