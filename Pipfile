@@ -5,7 +5,6 @@ name = "pypi"
 
 [packages]
 python-rtmidi = "*"
-pyqt5 = "*"
 zeroconf = "*"
 
 [dev-packages]
